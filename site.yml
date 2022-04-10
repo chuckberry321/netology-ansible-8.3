@@ -12,6 +12,7 @@
       get_url:
         url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ elk_stack_version }}-x86_64.rpm"
         dest: "/tmp/elasticsearch-{{ elk_stack_version }}-x86_64.rpm"
+        mode: 0644
       register: download_elastic
       until: download_elastic is succeeded
     - name: Install Elasticsearch
@@ -24,4 +25,5 @@
       template:
         src: elasticsearch.yml.j2
         dest: /etc/elasticsearch/elasticsearch.yml
+        mode: 0644
       notify: restart Elasticsearch
