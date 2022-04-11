@@ -10,7 +10,8 @@
   tasks:
     - name: "Download Elasticsearch's rpm"
       get_url:
-        url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ elk_stack_version }}-x86_64.rpm"
+#        url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ elk_stack_version }}-x86_64.rpm"
+        url: "https://mirrors.huaweicloud.com/elasticsearch/{{ elk_stack_version }}/elasticsearch-{{ elk_stack_version }}-x86_64.rpm"
         dest: "/tmp/elasticsearch-{{ elk_stack_version }}-x86_64.rpm"
         mode: 0644
       register: download_elastic
