@@ -7,7 +7,7 @@
       service:
         name: elasticsearch
         state: restarted
-      tags: elsticsearch
+      tags: elasticsearch
   tasks:
     - name: "Download Elasticsearch's rpm"
       get_url:
@@ -22,7 +22,7 @@
       yum:
         name: "/tmp/elasticsearch-{{ elk_stack_version }}-x86_64.rpm"
         state: present
-      tags: elsticsearch
+      tags: elasticsearch
     - name: Configure Elasticsearch
       become: true
       template:
@@ -30,7 +30,7 @@
         dest: /etc/elasticsearch/elasticsearch.yml
         mode: 0644
       notify: restart Elasticsearch
-      tags: elsticsearch
+      tags: elasticsearch
 
 - name: Install Kibana
   hosts: kibana
